@@ -18,6 +18,7 @@ exit(0);
 else
 {
 waitpid(-1,&status,0);
+//child process is created
 printf("child is created\n");
 printf("status is %d",WEXITSTATUS(status));
 }
