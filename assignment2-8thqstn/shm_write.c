@@ -29,6 +29,6 @@ int main()
 	sem_post(ps);
 	sem_post(qs);
 	printf("buffer=%s\n",str);
-	munmap(pbase,filesz);
+	munmap(pbase,file_size);
 	return 0;
 }
