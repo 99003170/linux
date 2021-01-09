@@ -50,23 +50,23 @@ void main() {
   pthread_t pro[7], con[7];
   sem_init(&empty, 0, size_of_buffer);
   sem_init(&full, 0, 0);
-
+//array initialisation
   int a[7] = {1, 2, 3, 4, 5,6,7}; 
-
+//creating threads
   for (int i = 0; i < 7; i++) {
     pthread_create(&pro[i], NULL, (void *)producer, (void *)&a[i]);
   }
   for (int i = 0; i < 7; i++) {
     pthread_create(&con[i], NULL, (void *)consumer, (void *)&a[i]);
   }
-
+//joining threads
   for (int i = 0; i < 7; i++) {
     pthread_join(pro[i], NULL);
   }
   for (int i = 0; i < 7; i++) {
     pthread_join(con[i], NULL);
   }
-
+//destroying threads
   sem_destroy(&empty);
   sem_destroy(&full);
 }
